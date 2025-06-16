@@ -515,11 +515,12 @@ def rdf_to_excel(
     shacl_graph = Graph().parse(Path(__file__).parent / "vocpub-5.1.ttl")
     v = shacl_validate(g, shacl_graph=shacl_graph, allow_warnings=True)
     if not v[0]:
+        print(v)
         return return_error(ShaclValidationError(v[2], v[1]), error_format)
 
     # load the template
     fn = (
-        "VocExcel-template-080-GA.xlsx"
+        "VocExcel-template-085-GA.xlsx"
         if template_version == "0.8.5.GA"
         else "VocExcel-template-085.xlsx"
     )
